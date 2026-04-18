@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataWash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Verdana, sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             background: #000000;
             color: #ffffff;
             display: flex;
@@ -34,7 +35,19 @@
         <form action="/upload" method="POST" enctype="multipart/form-data">
             <div class="upload-box">
                 <p>📂 Upload your CSV file</p>
-                <input type="file" name="file" accept=".csv" style="margin: 15px 0; font-family:monospace; color: #ffffff;">
+                <label for="fileInput" style="
+                    display: inline-block;
+                    border: 2px dashed #ffffff;
+                    border-radius: 10px;
+                    padding: 20px 40px;
+                    cursor: pointer;
+                    color: #aaaaaa;
+                    font-size: 0.95rem;
+                    margin-bottom: 15px;
+                    transition: 0.3s;">
+                    📂 <span id="fileLabel">Click to choose a CSV file</span>
+                </label>
+                <input type="file" id="fileInput" name="file" accept=".csv" style="display:none;">
                 <br>
                 <button type="submit" style="
                     background: #aaaaaa;
@@ -44,11 +57,18 @@
                     border-radius: 8px;
                     font-size: 1rem;
                     cursor: pointer;
+                    font-family:'Space Grotesk';
                     margin-top: 10px;">
                     Upload & Analyze
                 </button>
             </div>
         </form>
     </div>
+    <script>
+        document.getElementById("fileInput").addEventListener("change", function() {
+            const name = this.files[0] ? this.files[0].name : "Click to choose a CSV file";
+            document.getElementById("fileLabel").textContent = name;
+        });
+    </script>
 </body>
 </html>
