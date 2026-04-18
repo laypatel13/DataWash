@@ -21,7 +21,7 @@
             margin-bottom: 30px;
         }
         .card {
-            background: #433f3f;
+            background: #000000;
             border: 1px solid #ffffff;
             border-radius: 12px;
             padding: 20px 30px;
@@ -31,8 +31,6 @@
         .card h2 { font-size: 2rem; color: #ffffff; }
         .card p { color: #ffffff; font-size: 0.85rem; margin-top: 5px; }
         .btn {
-            background: #aaaaaa;
-            color: white;
             padding: 12px 28px;
             border-radius: 8px;
             text-decoration: none;
@@ -67,7 +65,14 @@
         </div>
     </div>
 
-    <a href="/" class="btn">⬅ Upload Another File</a>
+    <div style="display:flex; gap:16px; margin-top:10px;">
+        <a href="/" class="btn" style="background:#ffffff; color:#000000;">
+            ⬅ Upload Another File
+        </a>
+        <a href="/download/{{ filename }}" class="btn" style="background:#ffffff; color:#000000;">
+            Download Clean CSV
+        </a>
+    </div>
     
     <br>
     <br>

@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 from werkzeug.utils import secure_filename
 from modules.cleaner import clean_csv
 from modules.analyzer import analyze_csv
@@ -44,6 +44,11 @@ def upload():
                            analysis_report=analysis_report,
                            charts=charts,
                            filename=filename)
+
+@app.route("/download/<filename>")
+def download(filename):
+    cleaned_path = os.path.join(app.config["UPLOAD_FOLDER"], "cleaned_" + filename)
+    return send_file(cleaned_path, as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
