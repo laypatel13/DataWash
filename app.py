@@ -35,5 +35,7 @@ def upload():
     cleaned_path = os.path.join(app.config["UPLOAD_FOLDER"], "cleaned_" + filename)
     cleaned_df.to_csv(cleaned_path, index=False)
 
+    return render_template("report.html", clean_report=clean_report, filename=filename)
+
 if __name__ == "__main__":
     app.run(debug=True)

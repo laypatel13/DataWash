@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataWash Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            padding: 40px;
+        }
+        h1 { color: #ffffff; margin-bottom: 5px; }
+        p.sub { color: #aaa; margin-bottom: 30px; }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: #433f3f;
+            border: 1px solid #ffffff;
+            border-radius: 12px;
+            padding: 20px 30px;
+            min-width: 160px;
+            text-align: center;
+        }
+        .card h2 { font-size: 2rem; color: #ffffff; }
+        .card p { color: #ffffff; font-size: 0.85rem; margin-top: 5px; }
+        .btn {
+            background: #aaaaaa;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>DataWash ReporT</h1>
+    <p class="sub">File : {{ filename }}</p>
+
+    <div class="cards">
+        <div class="card">
+            <h2>{{ clean_report.original_rows }}</h2>
+            <p>Original Rows</p>
+        </div>
+        <div class="card">
+            <h2>{{ clean_report.duplicates_removed }}</h2>
+            <p>Duplicates Removed</p>
+        </div>
+        <div class="card">
+            <h2>{{ clean_report.missing_values_fixed }}</h2>
+            <p>Missing Values Fixed</p>
+        </div>
+        <div class="card">
+            <h2>{{ clean_report.outliers_removed }}</h2>
+            <p>Outliers Removed</p>
+        </div>
+        <div class="card">
+            <h2>{{ clean_report.cleaned_rows }}</h2>
+            <p>Final Clean Rows</p>
+        </div>
+    </div>
+
+    <a href="/" class="btn">⬅ Upload Another File</a>
+</body>
+</html>
