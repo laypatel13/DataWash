@@ -6,12 +6,6 @@ DataWash is a Flask-based web application that lets you upload any CSV file and 
 
 ---
 
-## 🚀 Live Demo
-
-> Upload a CSV → Get clean data + full analysis in seconds.
-
----
-
 ## ✨ Features
 
 - **Auto Data Cleaning**
@@ -111,16 +105,3 @@ This is an actively developing project. Planned features include:
 
 ---
 
-## 👨‍💻 Author
-
-**Lay Patel**
-B.Tech CSE (AI/ML) | Adani University
-
-- GitHub: [github.com/laypatel13](https://github.com/laypatel13)
-- LinkedIn: [linkedin.com/in/laypatel13](https://www.linkedin.com/in/laypatel13)
-
----
-
-## 📄 License
-
-MIT License — feel free to use and build on this project!
