@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from modules.cleaner import clean_csv
+from modules.analyzer import analyze_csv
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
@@ -35,7 +36,14 @@ def upload():
     cleaned_path = os.path.join(app.config["UPLOAD_FOLDER"], "cleaned_" + filename)
     cleaned_df.to_csv(cleaned_path, index=False)
 
-    return render_template("report.html", clean_report=clean_report, filename=filename)
+    # Run analyzer
+    analysis_report, charts = analyze_csv(cleaned_df, app.config["UPLOAD_FOLDER"])
+
+    return render_template("report.html",
+                           clean_report=clean_report,
+                           analysis_report=analysis_report,
+                           charts=charts,
+                           filename=filename)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -68,5 +68,33 @@
     </div>
 
     <a href="/" class="btn">⬅ Upload Another File</a>
+    
+    <br>
+    <br>
+
+    <h2 style="color:#ffffff; margin-bottom:16px;">📊 Analysis</h2>
+
+    <div class="cards" style="margin-bottom:30px;">
+        <div class="card">
+            <h2>{{ analysis_report.total_rows }}</h2>
+            <p>Total Rows</p>
+        </div>
+        <div class="card">
+            <h2>{{ analysis_report.numeric_cols }}</h2>
+            <p>Numeric Columns</p>
+        </div>
+        <div class="card">
+            <h2>{{ analysis_report.text_cols }}</h2>
+            <p>Text Columns</p>
+        </div>
+    </div>
+
+    <h2 style="color:#ffffff; margin-bottom:16px;">📈 Charts</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-bottom:30px;">
+        {% for chart in charts %}
+        <img src="{{ url_for('static', filename='charts/' + chart) }}"
+             style="border-radius:12px; border:1px solid #444; width:380px;">
+        {% endfor %}
+    </div>
 </body>
 </html>
